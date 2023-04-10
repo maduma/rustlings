@@ -18,8 +18,6 @@
 // - The output element is going to be a Vector of strings.
 // No hints this time!
 
-// I AM NOT DONE
-
 pub enum Command {
     Uppercase,
     Trim,
@@ -38,7 +36,7 @@ mod my_module {
                     Command::Trim => string.trim().to_string(),
                     Command::Append(count) => {
                         let mut buf = string.to_string();
-                        for _ in 0..count {
+                        for _ in 0..*count {
                             buf.push_str("bar");
                         }
                         buf
@@ -52,7 +50,7 @@ mod my_module {
 
 #[cfg(test)]
 mod tests {
-    use crate::my_module::transformer;
+    use super::my_module::transformer;
     use super::Command;
 
     #[test]
