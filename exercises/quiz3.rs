@@ -24,10 +24,8 @@ pub struct ReportCard<T> {
     pub student_age: u8,
 }
 
-impl<T> ReportCard<T> {
+impl<T: Display> ReportCard<T> {
     pub fn print(&self) -> String
-    where
-        T: Display,
     {
         format!("{} ({}) - achieved a grade of {}",
             &self.student_name, &self.student_age, &self.grade)
